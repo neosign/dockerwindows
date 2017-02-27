@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+   mysql-db:
+     image: mysql:5.7
+     volumes:
+       - Q:/sharevolume/mysql:/var/lib/mysql
+     environment:
+       MYSQL_ROOT_PASSWORD: 111111
+
+   docker-press:
+     depends_on:
+       - mysql-db
+     image: wordpress:latest
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: mysql-db:3306
+       WORDPRESS_DB_PASSWORD: 111111
+     volumes:
+       - Q:/sharevolume/wordpress:/var/www/html
+   webproxy:
+     depends_on:
+       - docker-press
+     image: nginx:latest
+     restart: always
+     ports:
+       - "80:80"
+     volumes:
+       - Q:/sharevolume/nginx/conf.d:/etc/nginx/conf.d
+
+
