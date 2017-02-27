@@ -1,0 +1,19 @@
+EP5#docker-compose
+#images             #container name
+nginx      ->      webproxy
+mysql      ->      mysql-db
+wordpress  ->      docker-press
+
+---Pre-requisite
+-create folder for nginx config volume Q:/sharevolume/nginx
+
+#create docker-compose.yml
+
+
+# docker-compose up -d
+# docker-compose down
+# docker-compose scale docker-press=3
+# docker-compose restart webproxy
+
+
+https://github.com/neosign/dockerwindows
