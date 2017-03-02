@@ -1,0 +1,70 @@
+EP6# Mongodb + Rest API in Docker on Window 10
+#################################################
+$ docker pull mongo
+$ docker pull mongo-express
+$ docker pull linuxenko/mongo-rest 
+$ docker volume ls
+$ docker volume create --name mongo-vol
+$ docker run --name mongo-db -v mongo-vol:/data/db -d mongo
+$ docker run --rm -v mongo-vol:/data/db ubuntu ls /data/db 
+$ docker run --name mongo-ui --link mongo-db:mongo -p 8081:8081 -d mongo-express
+$ docker run -p 3000:3000 --name mongo-rest-api --link mongo-db:mongo -e ME_CONFIG_DBSTRING=mongodb://mongo:27017/dockerdb -d linuxenko/mongo-rest
+
+===============================================
+DATA for mongo-express 
+{
+      "address" : {
+         "street" : "2 Avenue",
+         "zipcode" : "10075",
+         "building" : "1480",
+         "coord" : [ -73.9557413, 40.7720266 ]
+      },
+      "borough" : "Manhattan",
+      "cuisine" : "Italian",
+      "grades" : [
+         {
+            "date" : ISODate("2014-10-01T00:00:00Z"),
+            "grade" : "A",
+            "score" : 11
+         },
+         {
+            "date" : ISODate("2014-01-16T00:00:00Z"),
+            "grade" : "B",
+            "score" : 17
+         }
+      ],
+      "name" : "Vella",
+      "restaurant_id" : "41704620"
+   }
+
+
+DATA for mongo rest 
+
+{
+      "address" : {
+         "street" : "2 Avenue",
+         "zipcode" : "10075",
+         "building" : "1480",
+         "coord" : [ -73.9557413, 40.7720266 ]
+      },
+      "borough" : "Manhattan",
+      "cuisine" : "Italian",
+      "grades" : [
+         {
+            "date" : "2014-10-01T00:00:00Z",
+            "grade" : "A",
+            "score" : 11
+         },
+         {
+            "date" : "2014-01-16T00:00:00Z",
+            "grade" : "B",
+            "score" : 17
+         }
+      ],
+      "name" : "Vella",
+      "restaurant_id" : "41704620"
+   }
+
+
+   Mongo-Rest https://github.com/tdegrunt/mongodb-rest (Node)
+   Alternative - RestAPI http://restheart.org/  (JAVA)
