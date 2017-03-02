@@ -4,3 +4,4 @@
 3. Docker บนวินโดว์ 10	EP.3 : ลง Wordpress กับ MySQL ผ่าน Docker บนวินโดว์ 10
 4. Docker บนวินโดว์ 10	EP.4 : ตั้ง Nginx เป็น proxy containers  ผ่าน Docker บนวินโดว์ 10
 5. Docker บนวินโดว์ 10	EP.5 : Docker-Compose และ การ Scale Containers บนวินโดว์ 10
+6. Docker บนวินโดว์ 10	EP.6 : พัฒนา Rest API และ MongoDB ใช้ NodeJS ผ่าน Docker บนวินโดว์ 10
